@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Fitness_Application</string>
+    <string name="prog_str">
+        Понедельник – Грудь, спина(ширина), пресс \t \t Подходы/Повторения \n
+        \n
+        Жим штанги лежа на горизонтальной скамье \t  8 х 5/5/4/4/3/3/2/2 \n
+        Тяга штанги в наклоне \t\t\t\t\t\t\t\t\t              8 х 5/5/4/4/3/3/2/2 \n
+        Подъем ног на пресс \t\t\t\t\t\t\t\t\t                4х12-15 \n
+        \n
+        Среда – Ноги, Плечи, икры \n
+        \n
+        Приседания со штангой \t\t\t\t\t\t\t\t              8 x 5/5/4/4/3/3/2/2 \n
+        Жим штанги с груди стоя \t\t\t\t\t\t\t\t            6 х 5/4/4/3/3/2\n
+        Икры в тренажере для жима ногами \t\t\t\t         4х10-12\n
+        \n
+        Пятница – Спина(толщина), бицепс, трицепс \n
+        \n
+        Становая тяга \t\t\t\t\t\t\t\t\t\t\t                      8 x 5/5/4/4/3/3/2/2 \n
+        Подьемы штанги на бицепс \t\t\t\t\t\t\t              6 х 8/8/6/6/4/4 \n
+        Жим штанги узким хватом на трицепс \t\t\t\t       6 х 8/8/6/6/4/4
+    </string>
+    <string name="Btn_cancel">Cancel</string>
+    <string name="single_shot">Single Shot</string>
+    <string name="Btn_start">Start</string>
+    <string name="start">Start</string>
+    <string name="textview">TextView</string>
+</resources>

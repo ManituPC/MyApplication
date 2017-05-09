@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:background="@android:color/holo_green_dark">
+
+    <TextView
+            android:id="@+id/textView3"
+            android:text="Калькулятор калорий"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textColor="@color/colorHeader"/>
+    <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView3">
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:id="@+id/button8"
+                    android:text="Молоко"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="ClickMilk" tools:ignore="ButtonStyle"/>
+            <Button
+                    android:id="@+id/button"
+                    android:text="Гречка"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="ClickBuckwheat"/>
+        </TableRow>
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <Button
+                    android:id="@+id/button10"
+                    android:text="Курица"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="ClickChick"/>
+            <Button
+                    android:id="@+id/button9"
+                    android:text="Арахисовая паста"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="ClickPaste"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:id="@+id/button12"
+                    android:text="Свой продукт"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="ClickNewProd"/>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/tableLayout">
+        <TextView
+                android:id="@+id/textView9"
+                android:text="Сумма: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp" android:textColor="@color/colorHeader"/>
+    </LinearLayout>
+</RelativeLayout>
