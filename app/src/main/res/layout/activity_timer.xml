@@ -18,12 +18,12 @@
             <NumberPicker
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/PickerMin"
+                    android:id="@+id/PickerWO"
                     android:layout_weight="1"/>
             <NumberPicker
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/PickerSec"
+                    android:id="@+id/PickerR"
                     android:layout_weight="1"/>
         </TableRow>
         <Button

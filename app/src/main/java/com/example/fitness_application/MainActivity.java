@@ -33,36 +33,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-
-//    Диалог выхода да/нет?
-
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        openQuitDialog();
-//    }
-//
-//    private void openQuitDialog() {
-//        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
-//                MainActivity.this);
-//        quitDialog.setTitle("Выход: Вы уверены?");
-//
-//        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-////                 TODO Auto-generated method stub
-//                finish();
-//            }
-//        });
-//
-//        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-////                 TODO Auto-generated method stub
-//            }
-//        });
-//
-//        quitDialog.show();
-//    }
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setMessage("Вы действительно хотите покинуть программу?").setCancelable(false).setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                finish();
+            }
+        }).setNegativeButton("Нет", null).show();
+    }
 }
 

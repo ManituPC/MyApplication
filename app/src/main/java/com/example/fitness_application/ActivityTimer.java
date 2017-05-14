@@ -1,6 +1,5 @@
 package com.example.fitness_application;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Timer;
 
 
 /**
@@ -23,6 +21,8 @@ public class ActivityTimer extends AppCompatActivity {
     private NumberPicker PickerSecRest;
     long secWork;
     long secRest;
+    boolean mIsRunning = false;
+    int mCurrentPeriod = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +30,17 @@ public class ActivityTimer extends AppCompatActivity {
         setContentView(R.layout.activity_timer);
 
         mTextField = (TextView) findViewById(R.id.textView10);
-        PickerSecWork = (NumberPicker) findViewById(R.id.PickerMin);
-        PickerSecRest = (NumberPicker) findViewById(R.id.PickerSec);
+        PickerSecWork = (NumberPicker) findViewById(R.id.PickerWO);
+        PickerSecRest = (NumberPicker) findViewById(R.id.PickerR);
         PickerSecWork.setMinValue(0);
         PickerSecWork.setMaxValue(59);
         PickerSecRest.setMinValue(0);
         PickerSecRest.setMaxValue(59);
+        PickerSecWork.setOnValueChangedListener(onValueChanged);
+//        secWork = PickerSecWork.getValue();
+//        secRest = PickerSecRest.getValue();
+        int value = PickerSecWork.getValue();
+        secWork = Long.parseLong(String.valueOf(value));
     }
 
     public void TimerWorkOut() {
@@ -85,6 +90,9 @@ public class ActivityTimer extends AppCompatActivity {
         }
     };
 
+
+
     private String intToTime(int i) {
-        return (new SimpleDateFormat("mm:ss")).format(new Date(i * 1000)); }
+        return (new SimpleDateFormat("ss")).format(new Date(i * 1000));
+    }
 }
