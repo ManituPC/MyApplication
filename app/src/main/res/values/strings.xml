@@ -24,4 +24,5 @@
     <string name="Btn_start">Start</string>
     <string name="start">Start</string>
     <string name="textview">TextView</string>
+    <string name="_0">0</string>
 </resources>

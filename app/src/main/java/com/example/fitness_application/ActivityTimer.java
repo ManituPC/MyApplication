@@ -16,9 +16,13 @@ import java.util.Date;
  */
 public class ActivityTimer extends AppCompatActivity {
 
-    private TextView mTextField;
-    private NumberPicker PickerSecWork;
-    private NumberPicker PickerSecRest;
+    private TextView mTextWork;
+    private TextView mTextRest;
+    private TextView mTextRound;
+    private NumberPicker pickerSecWork;
+    private NumberPicker pickerSecRest;
+    private NumberPicker pickerRound;
+    int n;
     long secWork;
     long secRest;
     boolean mIsRunning = false;
@@ -29,29 +33,32 @@ public class ActivityTimer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
-        mTextField = (TextView) findViewById(R.id.textView10);
-        PickerSecWork = (NumberPicker) findViewById(R.id.PickerWO);
-        PickerSecRest = (NumberPicker) findViewById(R.id.PickerR);
-        PickerSecWork.setMinValue(0);
-        PickerSecWork.setMaxValue(59);
-        PickerSecRest.setMinValue(0);
-        PickerSecRest.setMaxValue(59);
-        PickerSecWork.setOnValueChangedListener(onValueChanged);
-//        secWork = PickerSecWork.getValue();
-//        secRest = PickerSecRest.getValue();
-        int value = PickerSecWork.getValue();
-        secWork = Long.parseLong(String.valueOf(value));
+        mTextWork = (TextView) findViewById(R.id.textViewWork);
+        mTextRest = (TextView) findViewById(R.id.textViewRest);
+        mTextRound = (TextView) findViewById(R.id.textViewRound);
+        pickerSecWork = (NumberPicker) findViewById(R.id.pickerWO);
+        pickerSecRest = (NumberPicker) findViewById(R.id.pickerR);
+        pickerRound = (NumberPicker) findViewById(R.id.pickerRound);
+        pickerSecWork.setMinValue(0);
+        pickerSecWork.setMaxValue(59);
+        pickerSecRest.setMinValue(0);
+        pickerSecRest.setMaxValue(59);
+        pickerRound.setMinValue(0);
+        pickerRound.setMaxValue(8);
+        pickerSecWork.setOnValueChangedListener(onValueChangedWork);
+        pickerSecRest.setOnValueChangedListener(onValueChangedRest);
+        pickerRound.setOnValueChangedListener(onValueChangedRound);
     }
 
     public void TimerWorkOut() {
         new CountDownTimer(secWork, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                mTextField.setText(" " + millisUntilFinished / 1000);
+                mTextWork.setText(" " + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
-                mTextField.setText("Rest!");
+                mTextWork.setText("Rest!");
             }
         }.start();
     }
@@ -60,18 +67,30 @@ public class ActivityTimer extends AppCompatActivity {
         new CountDownTimer(secRest, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                mTextField.setText(" " + millisUntilFinished / 1000);
+                mTextRest.setText(" " + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
-                mTextField.setText("Just do it!");
+                mTextRest.setText("Just do it!");
             }
         }.start();
     }
 
+    public void NumberRound() {
+        int value = pickerRound.getValue();
+        secWork = Integer.parseInt(String.valueOf(value));
+
+        for (n = value; n <= 8; n = n++) {
+
+        }
+
+
+    }
     public void ClickStart(View view) {
+        secWork = pickerSecWork.getValue() * 1000;
         TimerWorkOut();
         if(secWork == 0) {
+            secRest = pickerSecRest.getValue() * 1000;
             TimerRest();
         }
     }
@@ -80,17 +99,39 @@ public class ActivityTimer extends AppCompatActivity {
 
     }
 
-    NumberPicker.OnValueChangeListener onValueChanged = new NumberPicker.OnValueChangeListener() {
+    NumberPicker.OnValueChangeListener onValueChangedWork = new NumberPicker.OnValueChangeListener() {
         @Override
         public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
             if (!mIsRunning) {
-                mTextField.setText(intToTime(newVal));
+                mTextWork.setText(intToTime(newVal));
                 mCurrentPeriod = newVal;
             }
         }
     };
 
+    NumberPicker.OnValueChangeListener onValueChangedRest = new NumberPicker.OnValueChangeListener() {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            if (!mIsRunning) {
+                mTextRest.setText(intToTime(newVal));
+                mCurrentPeriod = newVal;
+            }
+        }
+    };
 
+    NumberPicker.OnValueChangeListener onValueChangedRound = new NumberPicker.OnValueChangeListener() {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            if (!mIsRunning) {
+                mTextRound.setText(NumberRound(newVal));
+                mCurrentPeriod = newVal;
+            }
+        }
+    };
+
+    private String NumberRound (int i) {
+        return (secWork);
+    }
 
     private String intToTime(int i) {
         return (new SimpleDateFormat("ss")).format(new Date(i * 1000));
