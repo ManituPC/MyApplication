@@ -78,19 +78,15 @@ public class ActivityTimer extends AppCompatActivity {
 
     public void NumberRound() {
         int value = pickerRound.getValue();
-        secWork = Integer.parseInt(String.valueOf(value));
-
-        for (n = value; n <= 8; n = n++) {
-
+        for (n = 0; n <= value; n = n++) {
         }
-
-
     }
+
     public void ClickStart(View view) {
         secWork = pickerSecWork.getValue() * 1000;
+        secRest = pickerSecRest.getValue() * 1000;
         TimerWorkOut();
         if(secWork == 0) {
-            secRest = pickerSecRest.getValue() * 1000;
             TimerRest();
         }
     }
@@ -130,7 +126,7 @@ public class ActivityTimer extends AppCompatActivity {
     };
 
     private String NumberRound (int i) {
-        return (secWork);
+        return (new String(String.valueOf(i)));
     }
 
     private String intToTime(int i) {
