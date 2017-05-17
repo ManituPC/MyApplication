@@ -22,9 +22,10 @@ public class ActivityTimer extends AppCompatActivity {
     private NumberPicker pickerSecWork;
     private NumberPicker pickerSecRest;
     private NumberPicker pickerRound;
-    int n;
+    int n = 0;
     long secWork;
     long secRest;
+    int numberRound;
     boolean mIsRunning = false;
     int mCurrentPeriod = 0;
 
@@ -47,8 +48,10 @@ public class ActivityTimer extends AppCompatActivity {
         pickerRound.setMaxValue(8);
         pickerSecWork.setOnValueChangedListener(onValueChangedWork);
         pickerSecRest.setOnValueChangedListener(onValueChangedRest);
-        pickerRound.setOnValueChangedListener(onValueChangedRound);
+//        pickerRound.setOnValueChangedListener(onValueChangedRound);
     }
+
+    // Реализация таймеров
 
     public void TimerWorkOut() {
         new CountDownTimer(secWork, 1000) {
@@ -76,24 +79,34 @@ public class ActivityTimer extends AppCompatActivity {
         }.start();
     }
 
-    public void NumberRound() {
-        int value = pickerRound.getValue();
-        for (n = 0; n <= value; n = n++) {
-        }
-    }
+//    public void NumberRound() {
+//        while (n <= numberRound) {
+//            mTextRound.setText(" " + n);
+//            n++;
+//        }
+//    }
+
+    // Кнопки
 
     public void ClickStart(View view) {
         secWork = pickerSecWork.getValue() * 1000;
         secRest = pickerSecRest.getValue() * 1000;
-        TimerWorkOut();
-        if(secWork == 0) {
-            TimerRest();
-        }
+        numberRound = pickerRound.getValue();
+        do {
+            TimerWorkOut();
+            if (secWork == 0) {
+                TimerRest();
+            }
+            n++;
+            mTextRound.setText(" " + n);
+        } while (n <= numberRound);
     }
 
     public void ClickCancel(View v) {
 
     }
+
+    // слушатели NumberPicker, и передача данных в TextWiew
 
     NumberPicker.OnValueChangeListener onValueChangedWork = new NumberPicker.OnValueChangeListener() {
         @Override
@@ -115,19 +128,21 @@ public class ActivityTimer extends AppCompatActivity {
         }
     };
 
-    NumberPicker.OnValueChangeListener onValueChangedRound = new NumberPicker.OnValueChangeListener() {
-        @Override
-        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-            if (!mIsRunning) {
-                mTextRound.setText(NumberRound(newVal));
-                mCurrentPeriod = newVal;
-            }
-        }
-    };
+//    NumberPicker.OnValueChangeListener onValueChangedRound = new NumberPicker.OnValueChangeListener() {
+//        @Override
+//        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+//            if (!mIsRunning) {
+//                mTextRound.setText(strNumberRound(newVal));
+//                mCurrentPeriod = newVal;
+//            }
+//        }
+//    };
 
-    private String NumberRound (int i) {
-        return (new String(String.valueOf(i)));
-    }
+    // методы для чтения данных с NumberPicker
+
+//    private String strNumberRound (int i) {
+//        return (new String(String.valueOf(i)));
+//    }
 
     private String intToTime(int i) {
         return (new SimpleDateFormat("ss")).format(new Date(i * 1000));
