@@ -1,8 +1,10 @@
 package com.example.fitness_application;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -49,6 +51,7 @@ public class ActivityTimer extends AppCompatActivity {
         pickerSecWork.setOnValueChangedListener(onValueChangedWork);
         pickerSecRest.setOnValueChangedListener(onValueChangedRest);
 //        pickerRound.setOnValueChangedListener(onValueChangedRound);
+        numberRound = pickerRound.getValue();
     }
 
     // Реализация таймеров
@@ -62,6 +65,7 @@ public class ActivityTimer extends AppCompatActivity {
 
             public void onFinish() {
                 mTextWork.setText("Rest!");
+                TimerRest();
             }
         }.start();
     }
@@ -75,6 +79,7 @@ public class ActivityTimer extends AppCompatActivity {
 
             public void onFinish() {
                 mTextRest.setText("Just do it!");
+                n++;
             }
         }.start();
     }
@@ -92,14 +97,11 @@ public class ActivityTimer extends AppCompatActivity {
         secWork = pickerSecWork.getValue() * 1000;
         secRest = pickerSecRest.getValue() * 1000;
         numberRound = pickerRound.getValue();
-        do {
+
+        while (n <= numberRound) {
             TimerWorkOut();
-            if (secWork == 0) {
-                TimerRest();
-            }
-            n++;
             mTextRound.setText(" " + n);
-        } while (n <= numberRound);
+        }
     }
 
     public void ClickCancel(View v) {

@@ -20,4 +20,14 @@ public class ActivityGym extends AppCompatActivity {
         Intent i = new Intent(this, ActivityStr.class);
         startActivity(i);
     }
+
+    public void ClickEn(View view) {
+        Intent i = new Intent(this, ActivityEn.class);
+        startActivity(i);
+    }
+
+    public void ClickBeach(View view) {
+        Intent i = new Intent(this, ActivityBeach.class);
+        startActivity(i);
+    }
 }

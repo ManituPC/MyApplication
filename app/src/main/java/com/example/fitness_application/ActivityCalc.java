@@ -1,11 +1,8 @@
 package com.example.fitness_application;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -56,5 +53,4 @@ public class ActivityCalc extends AppCompatActivity {
     public void ClickNewProd(View view) {
 
     }
-
 }
