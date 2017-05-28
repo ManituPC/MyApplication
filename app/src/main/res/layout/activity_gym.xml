@@ -27,20 +27,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickStr"/>
+                android:onClick="clickStr"/>
         <Button
                 android:id="@+id/button6"
                 android:text="Тренировка на выносливость"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickEn"/>
+                android:onClick="clickWeight"/>
         <Button
                 android:id="@+id/button7"
                 android:text="Тренировка для пляжников"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickBeach"/>
+                android:onClick="clickBeach"/>
     </LinearLayout>
 </RelativeLayout>

@@ -16,17 +16,17 @@ public class ActivityGym extends AppCompatActivity {
         setContentView(R.layout.activity_gym);
     }
 
-    public void ClickStr(View view) {
+    public void clickStr(View view) {
         Intent i = new Intent(this, ActivityStr.class);
         startActivity(i);
     }
 
-    public void ClickEn(View view) {
-        Intent i = new Intent(this, ActivityEn.class);
+    public void clickWeight(View view) {
+        Intent i = new Intent(this, ActivityWeight.class);
         startActivity(i);
     }
 
-    public void ClickBeach(View view) {
+    public void clickBeach(View view) {
         Intent i = new Intent(this, ActivityBeach.class);
         startActivity(i);
     }

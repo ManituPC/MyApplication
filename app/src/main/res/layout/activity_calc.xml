@@ -32,22 +32,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView5"
+                <EditText
+                    android:id="@+id/etPaste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/colorHeader"
-                    android:gravity="center|center_vertical"
-                    android:textSize="20sp"
-                    android:text="0" />
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/btnPaste"
+                    android:onClick="clickPaste"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="ClickPaste"
                     android:text="Арахисовая паста" />
             </TableRow>
 
@@ -55,22 +55,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView10"
+                <EditText
+                    android:id="@+id/etChicken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/colorHeader"
-                    android:gravity="center|center_vertical"
-                    android:textSize="20sp"
-                    android:text="0" />
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/btnChicken"
+                    android:onClick="clickChick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="ClickChick"
                     android:text="Курица" />
             </TableRow>
 
@@ -78,46 +78,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView26"
+                <EditText
+                    android:id="@+id/etMilk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/colorHeader"
-                    android:gravity="center|center_vertical"
-                    android:textSize="20sp"
-                    android:text="0" />
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/btnMilk"
+                    android:onClick="clickMilk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="ClickMilk"
-                    android:text="Молоко"
-                    tools:ignore="ButtonStyle" />
+                    android:text="Молоко" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView27"
+                <EditText
+                    android:id="@+id/etBuckwheat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/colorHeader"
-                    android:gravity="center|center_vertical"
-                    android:textSize="20sp"
-                    android:text="0" />
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnBuckwheat"
+                    android:onClick="clickBuckwheat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="ClickBuckwheat"
                     android:text="Гречка" />
             </TableRow>
 
@@ -126,29 +125,19 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/colorHeader"
-                    android:gravity="center|center_vertical"
-                    android:textSize="20sp"
-                    android:text="0" />
-
                 <Button
-                    android:id="@+id/button12"
+                    android:id="@+id/btnNewProd"
+                    android:onClick="clickNewProd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="ClickNewProd"
-                    android:text="Свой продукт" />
+                    android:text="YНовый продукт" />
 
             </TableRow>
         </TableLayout>
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tvResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

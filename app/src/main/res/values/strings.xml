@@ -7,21 +7,42 @@
     <string name="textview">TextView</string>
     <string name="space"> </string>
     <string name="_0">0</string>
-    <string name="Упражнение">Упражнения</string>
-    <string name="Подходы">Подходы</string>
-    <string name="Повторения">Повторения</string>
-    <string name="n_1">\nДень 1</string>
-    <string name="упрДень1Сила">Жим штанги лежа\nна горизонтальной скамье\nТяга штанги в наклоне\nПодъем ног на пресс</string>
-    <string name="_4_n_n4_n5">4\n\n4\n5</string>
-    <string name="_8_10_n_n8_10_n20_30">8-10\n8-10\n20-30</string>
-    <string name="n_2">\nДень 2</string>
-    <string name="упрДень2Сила">Приседания со штангой\nЖим штанги с груди стоя\nИкры в тренажере для жима</string>
-    <string name="подходы2сила">4\n4\n5</string>
-    <string name="повторы2сила">8-10\n8-10\n10-12</string>
-    <string name="n_3">\nДень 3</string>
-    <string name="упрДень3Сила">Становая тяга\nПодъем штанги на бицепс\nЖим штанги узким хватом</string>
-    <string name="повторы3сила">8–10\n8-10\n20-30</string>
-    <string name="prog_str">8–10\n8-10\n20-30</string>
-    <string-array name="Упражнения2">Приседания со штангой\nЖим штанги с груди стоя\nИкры в тренажере для жима</string-array>
 
+    <string name="exercises">Упражнения</string>
+    <string name="approaches">Подходы</string>
+    <string name="repetition">Повторения</string>
+
+    <string name="day_1">\nДень 1</string>
+    <string name="exercises1_1">Жим штанги лежа\nна горизонтальной скамье\nТяга штанги в наклоне\nПодъем ног на пресс</string>
+    <string name="approaches1_1">5\n\n5\n5</string>
+    <string name="repetition1_1">8-12\n\n8-12\n20-30</string>
+
+    <string name="day_2">\nДень 2</string>
+    <string name="exercises1_2">Приседания со штангой\nЖим штанги с груди стоя\nИкры в тренажере для жима</string>
+    <string name="approaches1_2">5\n5\n5</string>
+    <string name="repetition1_2">8-12\n8-12\n10-12</string>
+
+    <string name="day_3">\nДень 3</string>
+    <string name="exercises1_3">Становая тяга\nПодъем штанги на бицепс\nЖим штанги узким хватом</string>
+    <string name="repetition1_3">8–12\n8-12\n8-12</string>
+
+    <string name="approaches2_1">4\n\n4\n4</string>
+    <string name="repetition2_1">6,5,4,3\n\n6,5,4,3\n6,5,4,3</string>
+
+    <string name="approaches2_2">4\n4\n4</string>
+    <string name="repetition2_2">6,5,4,3\n6,5,4,3\n12-15</string>
+
+    <string name="repetition2_3">6,5,4,3\n6,5,4,3\n6,5,4,3</string>
+
+    <string name="exercises3_1">Подъем штанги на бицепс стоя\nПодъем штанги на бицепс\nна скамье Скотта\nФранцузский жим штанги лежа\nСкручивание туловища  </string>
+    <string name="approaches3_1">4\n4\n\n4\n4</string>
+    <string name="repetition3_1">15-20\n15-20\n\n15-20\n25-30</string>
+
+    <string name="exercises3_2">Жим гантелей лежа\nОтжимания на брусьях\nСтановая тяга\nПодтягивания на турнике\nСкручивания туловища</string>
+    <string name="approaches3_2">4\n4\n4\n4\n4</string>
+    <string name="repetition3_2">15-20\n15-20\n10-15\n10-15\n25-30</string>
+
+    <string name="exercises3_3">Жим Арнольда\nТяга штанги к подбородку\nРазведение гантелей стоя\nСкручивания туловища</string>
+    <string name="approaches3_3">4\n4\n4\n4</string>
+    <string name="repetition3_3">15-20\n15-20\n15-20\n25-30</string>
 </resources>
