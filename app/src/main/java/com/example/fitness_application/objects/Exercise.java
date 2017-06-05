@@ -1,4 +1,4 @@
-package com.example.fitness_application.model;
+package com.example.fitness_application.objects;
 
 /**
  * Created by Денис on 31.05.2017.
@@ -8,9 +8,24 @@ public class Exercise {
 
     private long birth;
     private String name;
-    private int approach1, approach2, approach3, approach4, approach5;
     private int reiteration1, reiteration2, reiteration3, reiteration4, reiteration5;
     private int weight1, weight2, weight3, weight4, weight5;
+
+//    public Exercise(long birth, String name, int reiteration1, int reiteration2, int reiteration3, int reiteration4, int reiteration5,
+//                    int weight1, int weight2, int weight3, int weight4, int weight5) {
+//        this.birth = birth;
+//        this.name = name;
+//        this.reiteration1 = reiteration1;
+//        this.reiteration2 = reiteration2;
+//        this.reiteration3 = reiteration3;
+//        this.reiteration4 = reiteration4;
+//        this.reiteration5 = reiteration5;
+//        this.weight1 = weight1;
+//        this.weight2 = weight2;
+//        this.weight3 = weight3;
+//        this.weight4 = weight4;
+//        this.weight5 = weight5;
+//    }
 
     public long getBirth() {
         return birth;
@@ -26,46 +41,6 @@ public class Exercise {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getApproach1() {
-        return approach1;
-    }
-
-    public void setApproach1(int approach1) {
-        this.approach1 = approach1;
-    }
-
-    public int getApproach2() {
-        return approach2;
-    }
-
-    public void setApproach2(int approach2) {
-        this.approach2 = approach2;
-    }
-
-    public int getApproach3() {
-        return approach3;
-    }
-
-    public void setApproach3(int approach3) {
-        this.approach3 = approach3;
-    }
-
-    public int getApproach4() {
-        return approach4;
-    }
-
-    public void setApproach4(int approach4) {
-        this.approach4 = approach4;
-    }
-
-    public int getApproach5() {
-        return approach5;
-    }
-
-    public void setApproach5(int approach5) {
-        this.approach5 = approach5;
     }
 
     public int getReiteration1() {

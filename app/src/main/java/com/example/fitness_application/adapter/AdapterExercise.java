@@ -1,4 +1,4 @@
-package com.example.fitness_application.model;
+package com.example.fitness_application.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitness_application.ActivityDiary;
 import com.example.fitness_application.R;
+import com.example.fitness_application.objects.Exercise;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Денис on 31.05.2017.
@@ -22,8 +25,8 @@ public class AdapterExercise extends BaseAdapter {
     private ArrayList<Exercise> exercise;
     private Context c;
 
-    public AdapterExercise(ArrayList<Exercise> exercises, Context c) {
-        this.exercise = exercises;
+    public AdapterExercise(ArrayList<Exercise> exercise, ActivityDiary c) {
+        this.exercise = exercise;
         this.c = c;
     }
 
@@ -44,15 +47,24 @@ public class AdapterExercise extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null)
+        if (convertView == null)
             convertView = LayoutInflater.from(c).inflate(R.layout.listitem_exercise, null);
 
-        fillView(convertView, position);
-        return convertView;
+            fillView(convertView, position);
+
+            return convertView;
     }
 
     private void fillView(View v, int position) {
         final Exercise ex1 = getItem(position);
+
+        // date
+        EditText etDate = (EditText) v.findViewById(R.id.etDate);
+        if (etDate.getText().length() == 0) {
+            etDate.setError("Заполните пустое поле");
+        } else {
+            etDate.getText();
+        }
 
         // name
         TextView tvExName = (TextView) v.findViewById(R.id.tvExName);
@@ -63,35 +75,35 @@ public class AdapterExercise extends BaseAdapter {
         if (etRI.getText().length() == 0) {
             etRI.setError("Заполните пустое поле");
         } else {
-//            saveReiteration();
+            etRI.getText();
         }
 
         EditText etRII = (EditText) v.findViewById(R.id.etRII);
         if (etRII.getText().length() == 0) {
             etRII.setError("Заполните пустое поле");
         } else {
-//            saveReiteration();
+            etRII.getText();
         }
 
         EditText etRIII = (EditText) v.findViewById(R.id.etRIII);
         if (etRIII.getText().length() == 0) {
             etRIII.setError("Заполните пустое поле");
         } else {
-//            saveReiteration();
+            etRIII.getText();
         }
 
         EditText etRIV = (EditText) v.findViewById(R.id.etRIV);
         if (etRIV.getText().length() == 0) {
             etRIV.setError("Заполните пустое поле");
         } else {
-//            saveReiteration();
+            etRIV.getText();
         }
 
         EditText etRV = (EditText) v.findViewById(R.id.etRV);
         if (etRV.getText().length() == 0) {
             etRV.setError("Заполните пустое поле");
         } else {
-//            saveReiteration();
+            etRV.getText();
         }
 
         v.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +114,11 @@ public class AdapterExercise extends BaseAdapter {
             }
         });
     }
-    void saveReiteration(EditText i) {
-
-    }
+//    void saveValue(Exercise i, int a, EditText editText) {
+//        Exercise ex = i;
+//        int n = a;
+//        EditText etN = editText;
+//
+//    }
 
 }

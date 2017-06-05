@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_height="match_parent"
         android:background="@drawable/backgrounds_menu"
-        >
+        android:padding="5dp">
 
-        <EditText
+    <EditText
             android:id="@+id/etDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:ems="8"
             android:inputType="date"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:hint="Дата"
+            android:gravity="center"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/tvExName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etDate"
-            android:ems="10"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
             android:text=""
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="16dp" />
 
         <TableLayout
             android:id="@+id/tlARW"
-            android:layout_below="@+id/tvExName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvExName">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tvApproach"
@@ -48,7 +47,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Подход"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -59,7 +58,7 @@
                     android:layout_marginTop="10dp"
                     android:text="I"
                     android:textAlignment="center"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -70,7 +69,7 @@
                     android:layout_marginTop="10dp"
                     android:text="II"
                     android:textAlignment="center"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -81,7 +80,7 @@
                     android:layout_marginTop="10dp"
                     android:text="III"
                     android:textAlignment="center"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -92,7 +91,7 @@
                     android:layout_marginTop="10dp"
                     android:text="IV"
                     android:textAlignment="center"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -103,13 +102,13 @@
                     android:layout_marginTop="10dp"
                     android:text="V"
                     android:textAlignment="center"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tvReiretion"
@@ -118,7 +117,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Повторения"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -126,50 +125,50 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etRII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etRIII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etRIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etRV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tvWeight"
@@ -178,7 +177,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Вес"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -186,49 +185,57 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etWeightII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etWeightIII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etWeightIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/etWeightV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
                     android:ems="1"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
             </TableRow>
 
         </TableLayout>
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tlARW"
+        android:layout_marginTop="40dp"
+        android:text="Сохранить"
+        android:textSize="18dp"
+        android:onClick="clickSaveExercise"/>
 
 </RelativeLayout>
