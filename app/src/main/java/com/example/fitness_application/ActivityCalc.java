@@ -23,24 +23,14 @@ public class ActivityCalc extends AppCompatActivity {
 
     SharedPreferences mResultCalc;
 
-    EditText etPaste;
-    EditText etChicken;
-    EditText etMilk;
-    EditText etBuckwheat;
+    EditText etPaste, etChicken, etMilk, etBuckwheat;
 
-    Button btnPaste;
-    Button btnChicken;
-    Button btnMilk;
-    Button btnBuckwheat;
-    Button btnNewProd;
+    Button btnPaste, btnChicken, btnMilk, btnBuckwheat, btnNewProd;
 
-    TextView tvResult;
-    TextView tvAllResult;
-
+    TextView tvResult, tvAllResult;
 
     double weightPaste, weightChicken, weightMilk, weightBuckwheat;
-    double resultPaste, resultChicken, resultMilk, resultBuckwheat, resultDay;
-    double result;
+    double resultPaste, resultChicken, resultMilk, resultBuckwheat, result, resultDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,16 +84,6 @@ public class ActivityCalc extends AppCompatActivity {
 
     }
 
-    public void onResetClick(View v) {
-        SharedPreferences.Editor editor = mResultCalc.edit();
-        editor.clear();
-        editor.apply();
-        result = 0;
-        resultDay = 0;
-        tvResult.setText("0");
-        tvAllResult.setText("0");
-    }
-
     // метод для расчета при нажитии кнопки
     public void clickProd(EditText i, double a, double b, double c) {
         if (i.getText().length() == 0){
@@ -122,6 +102,16 @@ public class ActivityCalc extends AppCompatActivity {
     // кнопки сохранения "Суммы"
     public void onSaveClick(View v) {
         saveText();
+    }
+
+    public void onResetClick(View v) {
+        SharedPreferences.Editor editor = mResultCalc.edit();
+        editor.clear();
+        editor.apply();
+        result = 0;
+        resultDay = 0;
+        tvResult.setText("0");
+        tvAllResult.setText("0");
     }
 
     void saveText() {

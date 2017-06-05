@@ -9,26 +9,35 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void ClickTimer (View view) {
+    public void onClickTimer (View view) {
         Intent i = new Intent(this, ActivityTimer.class);
         startActivity(i);
     }
-    public void ClickGym (View view) {
+
+    public void onClickGym (View view) {
         Intent i = new Intent(this, ActivityGym.class);
         startActivity(i);
     }
-    public void ClickDiary (View view) {
+
+    public void onClickDiary (View view) {
         Intent i = new Intent(this, ActivityDiary.class);
         startActivity(i);
     }
-    public void ClickCalc (View view) {
+
+    public void onClickCalc (View view) {
         Intent i = new Intent(this, ActivityCalc.class);
+        startActivity(i);
+    }
+
+    public void onClickStopwatch (View view) {
+        Intent i = new Intent(this, ActivityStopwatch.class);
         startActivity(i);
     }
 

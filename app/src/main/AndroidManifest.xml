@@ -29,6 +29,9 @@
         <activity android:name="ActivityWeight"/>
 
         <activity android:name="ActivityBeach"/>
+
+        <activity android:name=".ActivityStopwatch"/>
+
     </application>
 
 </manifest>

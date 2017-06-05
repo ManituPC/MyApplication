@@ -13,7 +13,7 @@
         tools:context="com.example.fitness_application.MainActivity">
 
     <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvMenu"
             android:text="Меню"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,40 +21,51 @@
             android:textSize="24sp"
             android:textColor="@color/colorHeader"/>
     <LinearLayout
-            android:layout_below="@id/textView"
+            android:layout_below="@id/tvMenu"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <Button
-                android:id="@+id/button1"
+                android:id="@+id/btnTabata"
                 android:text="Таймер Табата"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickTimer" />
+                android:onClick="onClickTimer" />
+
         <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnGym"
                 android:text="Программы тренировок"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickGym"
-                android:contextClickable="false"
-        />
+                android:onClick="onClickGym" />
+
         <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnDiary"
                 android:text="Дневник тренировок"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickDiary"/>
+                android:onClick="onClickDiary"/>
+
         <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnCalc"
                 android:text="Счетчик калорий"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="ClickCalc"
-        />
+                android:onClick="onClickCalc" />
+
+        <Button
+                android:id="@+id/btnStopwatch"
+                android:text="Секундомер"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="onClickStopwatch" />
+
     </LinearLayout>
+
 </RelativeLayout>

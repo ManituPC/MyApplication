@@ -1,10 +1,8 @@
 package com.example.fitness_application;
 
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
