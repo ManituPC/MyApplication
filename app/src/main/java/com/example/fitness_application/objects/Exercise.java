@@ -6,32 +6,42 @@ package com.example.fitness_application.objects;
 
 public class Exercise {
 
-    private long birth;
+    private int id;
+    private int birth;
     private String name;
     private int reiteration1, reiteration2, reiteration3, reiteration4, reiteration5;
     private int weight1, weight2, weight3, weight4, weight5;
 
-//    public Exercise(long birth, String name, int reiteration1, int reiteration2, int reiteration3, int reiteration4, int reiteration5,
-//                    int weight1, int weight2, int weight3, int weight4, int weight5) {
-//        this.birth = birth;
-//        this.name = name;
-//        this.reiteration1 = reiteration1;
-//        this.reiteration2 = reiteration2;
-//        this.reiteration3 = reiteration3;
-//        this.reiteration4 = reiteration4;
-//        this.reiteration5 = reiteration5;
-//        this.weight1 = weight1;
-//        this.weight2 = weight2;
-//        this.weight3 = weight3;
-//        this.weight4 = weight4;
-//        this.weight5 = weight5;
-//    }
+    public Exercise(int id, int birth, String name, int reiteration1, int reiteration2, int reiteration3, int reiteration4, int reiteration5,
+                    int weight1, int weight2, int weight3, int weight4, int weight5) {
+        this.id = id;
+        this.birth = birth;
+        this.name = name;
+        this.reiteration1 = reiteration1;
+        this.reiteration2 = reiteration2;
+        this.reiteration3 = reiteration3;
+        this.reiteration4 = reiteration4;
+        this.reiteration5 = reiteration5;
+        this.weight1 = weight1;
+        this.weight2 = weight2;
+        this.weight3 = weight3;
+        this.weight4 = weight4;
+        this.weight5 = weight5;
+    }
 
-    public long getBirth() {
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getBirth() {
         return birth;
     }
 
-    public void setBirth(long birth) {
+    public void setBirth(int birth) {
         this.birth = birth;
     }
 

@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fitness_application.ActivityDiary;
 import com.example.fitness_application.R;
 import com.example.fitness_application.objects.Exercise;
 
@@ -22,22 +20,24 @@ import java.util.List;
 
 public class AdapterExercise extends BaseAdapter {
 
-    private ArrayList<Exercise> exercise;
+    private ArrayList<Exercise> exerciseList;
+
     private Context c;
 
-    public AdapterExercise(ArrayList<Exercise> exercise, ActivityDiary c) {
-        this.exercise = exercise;
+    //Constructor
+    public AdapterExercise(ArrayList<Exercise> exerciseList, Context c) {
+        this.exerciseList = exerciseList;
         this.c = c;
     }
 
     @Override
     public int getCount() {
-        return exercise.size();
+        return exerciseList.size();
     }
 
     @Override
-    public Exercise getItem(int position) {
-        return exercise.get(position);
+    public Object getItem(int position) {
+        return exerciseList.get(position);
     }
 
     @Override
@@ -47,78 +47,51 @@ public class AdapterExercise extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null)
-            convertView = LayoutInflater.from(c).inflate(R.layout.listitem_exercise, null);
-
-            fillView(convertView, position);
-
-            return convertView;
+        View v = convertView;
+        if(v == null)
+            v = LayoutInflater.from(c).inflate(R.layout.listitem_exercise_see, parent, false);
+            fillView(v, position);
+            return v;
     }
 
     private void fillView(View v, int position) {
-        final Exercise ex1 = getItem(position);
+        final Exercise ex = (Exercise) getItem(position);
 
-        // date
-        EditText etDate = (EditText) v.findViewById(R.id.etDate);
-        if (etDate.getText().length() == 0) {
-            etDate.setError("Заполните пустое поле");
-        } else {
-            etDate.getText();
-        }
+        TextView tvDate = (TextView)v.findViewById(R.id.tvDate);
+        TextView tvExNameC = (TextView)v.findViewById(R.id.tvExNameC);
+        TextView tvRI = (TextView)v.findViewById(R.id.tvRI);
+        TextView tvRII = (TextView)v.findViewById(R.id.tvRII);
+        TextView tvRIII = (TextView)v.findViewById(R.id.tvRIII);
+        TextView tvRIV = (TextView)v.findViewById(R.id.tvRIV);
+        TextView tvRV = (TextView)v.findViewById(R.id.tvRV);
+        TextView tvWeightI = (TextView)v.findViewById(R.id.tvWeightI);
+        TextView tvWeightII = (TextView)v.findViewById(R.id.tvWeightII);
+        TextView tvWeightIII = (TextView)v.findViewById(R.id.tvWeightIII);
+        TextView tvWeightIV = (TextView)v.findViewById(R.id.tvWeightIV);
+        TextView tvWeightV = (TextView)v.findViewById(R.id.tvWeightV);
 
-        // name
-        TextView tvExName = (TextView) v.findViewById(R.id.tvExName);
-        tvExName.setText(ex1.getName());
+        //Set text for View
+        tvDate.setText(ex.getBirth());
+        tvExNameC.setText(ex.getName());
+        tvRI.setText(ex.getReiteration1());
+        tvRII.setText(ex.getReiteration2());
+        tvRIII.setText(ex.getReiteration3());
+        tvRIV.setText(ex.getReiteration4());
+        tvRV.setText(ex.getReiteration5());
+        tvWeightI.setText(ex.getWeight1());
+        tvWeightII.setText(ex.getWeight2());
+        tvWeightIII.setText(ex.getWeight3());
+        tvWeightIV.setText(ex.getWeight4());
+        tvWeightV.setText(ex.getWeight5());
 
-        // reiteretion
-        EditText etRI = (EditText) v.findViewById(R.id.etRI);
-        if (etRI.getText().length() == 0) {
-            etRI.setError("Заполните пустое поле");
-        } else {
-            etRI.getText();
-        }
+        //Save product id to tag
+        v.setTag(ex.getId());
 
-        EditText etRII = (EditText) v.findViewById(R.id.etRII);
-        if (etRII.getText().length() == 0) {
-            etRII.setError("Заполните пустое поле");
-        } else {
-            etRII.getText();
-        }
-
-        EditText etRIII = (EditText) v.findViewById(R.id.etRIII);
-        if (etRIII.getText().length() == 0) {
-            etRIII.setError("Заполните пустое поле");
-        } else {
-            etRIII.getText();
-        }
-
-        EditText etRIV = (EditText) v.findViewById(R.id.etRIV);
-        if (etRIV.getText().length() == 0) {
-            etRIV.setError("Заполните пустое поле");
-        } else {
-            etRIV.getText();
-        }
-
-        EditText etRV = (EditText) v.findViewById(R.id.etRV);
-        if (etRV.getText().length() == 0) {
-            etRV.setError("Заполните пустое поле");
-        } else {
-            etRV.getText();
-        }
-
+        // Добавим возможность клика
         v.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(AdapterExercise.this.c,
-                        ex1.getName(),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdapterExercise.this.c, ex.getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-//    void saveValue(Exercise i, int a, EditText editText) {
-//        Exercise ex = i;
-//        int n = a;
-//        EditText etN = editText;
-//
-//    }
-
 }

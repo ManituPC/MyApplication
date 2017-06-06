@@ -2,6 +2,8 @@ package com.example.fitness_application;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.fitness_application.objects.Exercise;
 
@@ -14,10 +16,5 @@ public class ExerciseField extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listitem_exercise);
-    }
-
-    public void clickSaveExercise(){
-        Exercise exercise = new Exercise();
-        
     }
 }

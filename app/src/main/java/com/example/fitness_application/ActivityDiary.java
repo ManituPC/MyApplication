@@ -3,8 +3,11 @@ package com.example.fitness_application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.fitness_application.adapter.AdapterExercise;
 import com.example.fitness_application.objects.Exercise;
@@ -19,75 +22,39 @@ import java.util.Random;
  */
 public class ActivityDiary extends AppCompatActivity {
 
-    ListView lvExercise;
-    ArrayList<Exercise> exerciseArrayList;
-    ArrayAdapter<Exercise> exerciseArrayAdapter;
+    private ListView lvExercise;
+    private AdapterExercise adapterExercise;
+    private ArrayList<Exercise> exerciseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
 
-        lvExercise = (ListView) findViewById(R.id.lvExercise);
+        lvExercise = (ListView)findViewById(R.id.lvExercise);
 
-        exerciseArrayList = new ArrayList<>();
+        exerciseList = new ArrayList<Exercise>();
 
-        exerciseArrayAdapter = new ArrayAdapter<Exercise>(this, android.R.layout.simple_list_item_1,exerciseArrayList);
+        //Add sample data for list
+        exerciseList.add(new Exercise(1, 60617, "Жим лежа на скамье", 12, 12, 12, 10, 10, 40, 40, 40, 45, 45));
+        exerciseList.add(new Exercise(2, 60617, "Приседания со штангой", 12, 12, 12, 11, 10, 60, 60, 60, 65, 65));
 
-        lvExercise.setAdapter(exerciseArrayAdapter);
-
-        createExerciseList();
-
-        fillList();
-    }
-
-    public void onClickAddExercise(){
-        Intent intent = new Intent();
-        intent.setClass(ActivityDiary.this, ExerciseField.class);
-        startActivityForResult(intent, Intent_Constans.INTENT_REQUEST_CODE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-    }
-
-    private void fillList() {
-        AdapterExercise adapterExercise = new AdapterExercise(exercises, this);
+        //Init adapter
+        adapterExercise = new AdapterExercise(exerciseList, this);
         lvExercise.setAdapter(adapterExercise);
+
+//        lvExercise.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(getApplicationContext(), "Нажатие произошло!", Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//        });
+
     }
 
-    private void createFriendsList() {
-        Random r = new Random();
-        Calendar c = Calendar.getInstance();
-        c.roll(Calendar.YEAR, -25); // всем не более 25 лет
-        long possibleBirthday = c.getTimeInMillis(); // переводим в timestamp
-        exercises = new ArrayList<Exercise>();
-        for (int i = 0; i < 10; i++) {
-            Exercise ex1 = new Exercise();
-            ex1.setBirth(r.nextLong() % possibleBirthday);
-//            if (i % 2 == 0)
-//                ex1.setEmail("mymail" + r.nextInt(1000) +
-//                        "@mail.ru");
-//            ex1.setTelephone("+7 923 42" + i + "3 221 3" + i);
-//            ex1.setFavourite(i % 3 == 0);
-            ex1.setName("Иван Петрович №" + i);
-//            ex1.setAvatarExist(r.nextInt(10) % 2 == 0);
-            exercises.add(ex1);
-        }
-    }
-
-    private void createExerciseList(){
-        exercises = new ArrayList<Exercise>();
-        Exercise ex1 = new Exercise();
-        ex1.getBirth();
-        ex1.getName();
-        ex1.getReiteration1();
-        ex1.getReiteration2();
-        ex1.getReiteration3();
-        ex1.getReiteration4();
-        ex1.getReiteration5();
-
-        exercises.add(ex1);
+    public void onClickAddExercise(View view) {
+        Intent i = new Intent(this, ExerciseField.class);
+        startActivity(i);
     }
 }

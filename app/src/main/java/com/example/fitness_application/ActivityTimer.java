@@ -22,7 +22,7 @@ public class ActivityTimer extends AppCompatActivity {
     private NumberPicker pickerSecWork;
     private NumberPicker pickerSecRest;
     private NumberPicker pickerRound;
-    int n = 0;
+    int n = 1;
     long secWork;
     long secRest;
     int numberRound;
@@ -48,8 +48,6 @@ public class ActivityTimer extends AppCompatActivity {
         pickerRound.setMaxValue(8);
         pickerSecWork.setOnValueChangedListener(onValueChangedWork);
         pickerSecRest.setOnValueChangedListener(onValueChangedRest);
-//        pickerRound.setOnValueChangedListener(onValueChangedRound);
-        numberRound = pickerRound.getValue();
     }
 
     // Реализация таймеров
@@ -77,17 +75,9 @@ public class ActivityTimer extends AppCompatActivity {
 
             public void onFinish() {
                 mTextRest.setText("Just do it!");
-                n++;
             }
         }.start();
     }
-
-//    public void NumberRound() {
-//        while (n <= numberRound) {
-//            mTextRound.setText(" " + n);
-//            n++;
-//        }
-//    }
 
     // Кнопки
 
@@ -95,15 +85,15 @@ public class ActivityTimer extends AppCompatActivity {
         secWork = pickerSecWork.getValue() * 1000;
         secRest = pickerSecRest.getValue() * 1000;
         numberRound = pickerRound.getValue();
-
-        while (n <= numberRound) {
+        while (n <= numberRound){
             TimerWorkOut();
-            mTextRound.setText(" " + n);
+            mTextRound.setText("0" + n);
+            n = n + 1;
         }
     }
 
     public void ClickCancel(View v) {
-
+        //Будет reset
     }
 
     // слушатели NumberPicker, и передача данных в TextWiew
@@ -127,22 +117,6 @@ public class ActivityTimer extends AppCompatActivity {
             }
         }
     };
-
-//    NumberPicker.OnValueChangeListener onValueChangedRound = new NumberPicker.OnValueChangeListener() {
-//        @Override
-//        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//            if (!mIsRunning) {
-//                mTextRound.setText(strNumberRound(newVal));
-//                mCurrentPeriod = newVal;
-//            }
-//        }
-//    };
-
-    // методы для чтения данных с NumberPicker
-
-//    private String strNumberRound (int i) {
-//        return (new String(String.valueOf(i)));
-//    }
 
     private String intToTime(int i) {
         return (new SimpleDateFormat("ss")).format(new Date(i * 1000));

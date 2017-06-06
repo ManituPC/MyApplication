@@ -32,6 +32,8 @@
 
         <activity android:name=".ActivityStopwatch"/>
 
+        <activity android:name=".ExerciseField"/>
+
     </application>
 
 </manifest>

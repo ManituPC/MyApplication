@@ -58,51 +58,47 @@
                     android:layout_marginTop="10dp"
                     android:text="I"
                     android:textAlignment="center"
-                    android:textSize="16dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvAII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="II"
                     android:textAlignment="center"
-                    android:textSize="16dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvAIII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="III"
                     android:textAlignment="center"
-                    android:textSize="16dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvAIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="IV"
                     android:textAlignment="center"
-                    android:textSize="16dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvAV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="V"
                     android:textAlignment="center"
-                    android:textSize="16dp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </TableRow>
 
@@ -125,45 +121,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="2"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etRII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="2"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etRIII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="2"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etRIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="2"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etRV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="2"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
             </TableRow>
 
             <TableRow
@@ -185,45 +177,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="3"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etWeightII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="3"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etWeightIII"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="3"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etWeightIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="3"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/etWeightV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:ems="1"
+                    android:ems="3"
                     android:inputType="number"
-                    android:textSize="16dp" />
+                    android:textSize="12sp" />
             </TableRow>
 
         </TableLayout>
