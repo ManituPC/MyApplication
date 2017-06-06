@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -75,21 +76,22 @@ public class ActivityTimer extends AppCompatActivity {
 
             public void onFinish() {
                 mTextRest.setText("Just do it!");
+                if(n < numberRound) {
+                    TimerWorkOut();
+                    n++;
+                }
+                mTextRound.setText("№" + n);
             }
         }.start();
     }
 
     // Кнопки
-
     public void ClickStart(View view) {
         secWork = pickerSecWork.getValue() * 1000;
         secRest = pickerSecRest.getValue() * 1000;
         numberRound = pickerRound.getValue();
-        while (n <= numberRound){
-            TimerWorkOut();
-            mTextRound.setText("0" + n);
-            n = n + 1;
-        }
+        TimerWorkOut();
+        mTextRound.setText("№" + n);
     }
 
     public void ClickCancel(View v) {
@@ -97,7 +99,6 @@ public class ActivityTimer extends AppCompatActivity {
     }
 
     // слушатели NumberPicker, и передача данных в TextWiew
-
     NumberPicker.OnValueChangeListener onValueChangedWork = new NumberPicker.OnValueChangeListener() {
         @Override
         public void onValueChange(NumberPicker picker, int oldVal, int newVal) {

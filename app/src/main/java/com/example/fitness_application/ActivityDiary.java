@@ -4,18 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.fitness_application.adapter.AdapterExercise;
 import com.example.fitness_application.objects.Exercise;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Денис on 28.02.2017.
@@ -54,7 +48,7 @@ public class ActivityDiary extends AppCompatActivity {
     }
 
     public void onClickAddExercise(View view) {
-        Intent i = new Intent(this, ExerciseField.class);
+        Intent i = new Intent(this, ActivityNewExercise.class);
         startActivity(i);
     }
 }

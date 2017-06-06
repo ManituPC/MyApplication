@@ -22,12 +22,12 @@ public class AdapterExercise extends BaseAdapter {
 
     private ArrayList<Exercise> exerciseList;
 
-    private Context c;
+    private Context context;
 
     //Constructor
-    public AdapterExercise(ArrayList<Exercise> exerciseList, Context c) {
+    public AdapterExercise(ArrayList<Exercise> exerciseList, Context conetxt) {
         this.exerciseList = exerciseList;
-        this.c = c;
+        this.context = context;
     }
 
     @Override
@@ -47,11 +47,11 @@ public class AdapterExercise extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-        if(v == null)
-            v = LayoutInflater.from(c).inflate(R.layout.listitem_exercise_see, parent, false);
-            fillView(v, position);
-            return v;
+        View view = convertView;
+        if(view == null)
+            view = LayoutInflater.from(context).inflate(R.layout.listitem_exercise_see, parent, false);
+            fillView(view, position);
+            return view;
     }
 
     private void fillView(View v, int position) {
@@ -90,7 +90,7 @@ public class AdapterExercise extends BaseAdapter {
         // Добавим возможность клика
         v.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(AdapterExercise.this.c, ex.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdapterExercise.this.context, ex.getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
