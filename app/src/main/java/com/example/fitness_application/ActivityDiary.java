@@ -18,7 +18,6 @@ public class ActivityDiary extends AppCompatActivity {
 
     private ListView lvExercise;
     private AdapterExercise adapterExercise;
-    private ArrayList<Exercise> exerciseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +26,14 @@ public class ActivityDiary extends AppCompatActivity {
 
         lvExercise = (ListView)findViewById(R.id.lvExercise);
 
-        exerciseList = new ArrayList<Exercise>();
+        ArrayList<Exercise> exerciseList = new ArrayList<Exercise>();
 
         //Add sample data for list
         exerciseList.add(new Exercise(1, 60617, "Жим лежа на скамье", 12, 12, 12, 10, 10, 40, 40, 40, 45, 45));
         exerciseList.add(new Exercise(2, 60617, "Приседания со штангой", 12, 12, 12, 11, 10, 60, 60, 60, 65, 65));
+        exerciseList.add(new Exercise(3, 60617, "Подъем штанги на бицепс", 12, 12, 12, 11, 10, 60, 60, 60, 65, 65));
+        exerciseList.add(new Exercise(4, 60617, "Становая тяга", 12, 12, 12, 11, 10, 60, 60, 60, 65, 65));
+        exerciseList.add(new Exercise(5, 60617, "Скручивания", 12, 12, 12, 11, 10, 60, 60, 60, 65, 65));
 
         //Init adapter
         adapterExercise = new AdapterExercise(exerciseList, this);

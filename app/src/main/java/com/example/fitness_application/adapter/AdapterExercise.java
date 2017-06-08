@@ -12,7 +12,6 @@ import com.example.fitness_application.R;
 import com.example.fitness_application.objects.Exercise;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Денис on 31.05.2017.
@@ -25,7 +24,7 @@ public class AdapterExercise extends BaseAdapter {
     private Context context;
 
     //Constructor
-    public AdapterExercise(ArrayList<Exercise> exerciseList, Context conetxt) {
+    public AdapterExercise(ArrayList<Exercise> exerciseList, Context context) {
         this.exerciseList = exerciseList;
         this.context = context;
     }
@@ -49,13 +48,13 @@ public class AdapterExercise extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if(view == null)
-            view = LayoutInflater.from(context).inflate(R.layout.listitem_exercise_see, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.listitem_exercise_see, null);
             fillView(view, position);
             return view;
     }
 
     private void fillView(View v, int position) {
-        final Exercise ex = (Exercise) getItem(position);
+        final Exercise exercise = (Exercise) getItem(position);
 
         TextView tvDate = (TextView)v.findViewById(R.id.tvDate);
         TextView tvExNameC = (TextView)v.findViewById(R.id.tvExNameC);
@@ -71,26 +70,26 @@ public class AdapterExercise extends BaseAdapter {
         TextView tvWeightV = (TextView)v.findViewById(R.id.tvWeightV);
 
         //Set text for View
-        tvDate.setText(ex.getBirth());
-        tvExNameC.setText(ex.getName());
-        tvRI.setText(ex.getReiteration1());
-        tvRII.setText(ex.getReiteration2());
-        tvRIII.setText(ex.getReiteration3());
-        tvRIV.setText(ex.getReiteration4());
-        tvRV.setText(ex.getReiteration5());
-        tvWeightI.setText(ex.getWeight1());
-        tvWeightII.setText(ex.getWeight2());
-        tvWeightIII.setText(ex.getWeight3());
-        tvWeightIV.setText(ex.getWeight4());
-        tvWeightV.setText(ex.getWeight5());
+        tvDate.setText(String.valueOf(exercise.getBirth()));
+        tvExNameC.setText(exercise.getName());
+        tvRI.setText(String.valueOf(exercise.getReiteration1()));
+        tvRII.setText(String.valueOf(exercise.getReiteration2()));
+        tvRIII.setText(String.valueOf(exercise.getReiteration3()));
+        tvRIV.setText(String.valueOf(exercise.getReiteration4()));
+        tvRV.setText(String.valueOf(exercise.getReiteration5()));
+        tvWeightI.setText(String.valueOf(exercise.getWeight1()));
+        tvWeightII.setText(String.valueOf(exercise.getWeight2()));
+        tvWeightIII.setText(String.valueOf(exercise.getWeight3()));
+        tvWeightIV.setText(String.valueOf(exercise.getWeight4()));
+        tvWeightV.setText(String.valueOf(exercise.getWeight5()));
 
         //Save product id to tag
-        v.setTag(ex.getId());
+        v.setTag(exercise.getId());
 
         // Добавим возможность клика
         v.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(AdapterExercise.this.context, ex.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdapterExercise.this.context, exercise.getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }

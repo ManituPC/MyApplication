@@ -1,5 +1,6 @@
 package com.example.fitness_application;
 
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,7 +52,6 @@ public class ActivityTimer extends AppCompatActivity {
     }
 
     // Реализация таймеров
-
     public void TimerWorkOut() {
         new CountDownTimer(secWork, 1000) {
 
@@ -95,6 +94,7 @@ public class ActivityTimer extends AppCompatActivity {
     }
 
     public void ClickCancel(View v) {
+
         //Будет reset
     }
 
