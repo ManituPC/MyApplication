@@ -45,5 +45,7 @@
     <string name="exercises3_3">Жим Арнольда\nТяга штанги к подбородку\nРазведение гантелей стоя\nСкручивания туловища</string>
     <string name="approaches3_3">4\n4\n4\n4</string>
     <string name="repetition3_3">15-20\n15-20\n15-20\n25-30</string>
-    <string name="Sum">Сумма:</string>
+
+    <string name="Sum">Сумма: </string>
+    <string name="allSum">Калорий за день: </string>
 </resources>

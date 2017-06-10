@@ -1,10 +1,15 @@
 package com.example.fitness_application.objects;
 
+import io.realm.RealmObject;
+import io.realm.annotations.Required;
+
 /**
  * Created by Денис on 31.05.2017.
  */
 
-public class Exercise {
+public class Exercise extends RealmObject {
+
+    @Required
 
     private int id;
     private int birth;
@@ -132,4 +137,6 @@ public class Exercise {
     public void setWeight5(int weight5) {
         this.weight5 = weight5;
     }
+
 }
+

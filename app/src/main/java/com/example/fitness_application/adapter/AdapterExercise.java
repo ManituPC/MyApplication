@@ -13,11 +13,13 @@ import com.example.fitness_application.objects.Exercise;
 
 import java.util.ArrayList;
 
+import io.realm.RealmChangeListener;
+
 /**
  * Created by Денис on 31.05.2017.
  */
 
-public class AdapterExercise extends BaseAdapter {
+public class AdapterExercise extends BaseAdapter implements RealmChangeListener {
 
     private ArrayList<Exercise> exerciseList;
 
@@ -92,5 +94,10 @@ public class AdapterExercise extends BaseAdapter {
                 Toast.makeText(AdapterExercise.this.context, exercise.getName(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onChange() {
+
     }
 }

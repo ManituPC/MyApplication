@@ -32,7 +32,6 @@ public class ActivityStopwatch extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
         outState.putInt("seconds", seconds);
         outState.putBoolean("running", running);
     }
