@@ -9,24 +9,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitness_application.R;
-import com.example.fitness_application.objects.Exercise;
+import com.example.fitness_application.model.Exercise;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import io.realm.RealmChangeListener;
 
 /**
  * Created by Денис on 31.05.2017.
  */
 
-public class AdapterExercise extends BaseAdapter implements RealmChangeListener {
+public class AdapterExercise extends BaseAdapter {
 
-    private ArrayList<Exercise> exerciseList;
+
+    private List<Exercise> exerciseList;
 
     private Context context;
 
     //Constructor
-    public AdapterExercise(ArrayList<Exercise> exerciseList, Context context) {
+    public AdapterExercise(List<Exercise> exerciseList, Context context) {
         this.exerciseList = exerciseList;
         this.context = context;
     }
@@ -94,10 +95,5 @@ public class AdapterExercise extends BaseAdapter implements RealmChangeListener 
                 Toast.makeText(AdapterExercise.this.context, exercise.getName(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public void onChange() {
-
     }
 }

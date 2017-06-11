@@ -1,25 +1,20 @@
 package com.example.fitness_application;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.example.fitness_application.objects.Exercise;
-
-import io.realm.Realm;
-
-import static java.security.AccessController.getContext;
+import com.example.fitness_application.model.Exercise;
 
 /**
  * Created by Денис on 06.06.2017.
  */
 
 public class ActivityNewExercise extends AppCompatActivity {
-
-    private Realm exerciseRealm;
 
     EditText etDate, etExName, etRI, etRII, etRIII, etRIV, etRV, etWeightI, etWeightII, etWeightIII,
             etWeightIV, etWeightV;
@@ -30,8 +25,6 @@ public class ActivityNewExercise extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_exercise);
-
-        exerciseRealm = Realm.getInstance(this);
 
         etDate = (EditText)findViewById(R.id.etDate);
         etExName = (EditText)findViewById(R.id.etExName);
@@ -50,8 +43,8 @@ public class ActivityNewExercise extends AppCompatActivity {
     }
 
     public void clickAddNewExercise(View view) {
-        exerciseRealm.beginTransaction();
-        Exercise exercise = exerciseRealm.createObject(Exercise.class);
+
+        Exercise exercise = new Exercise();
         exercise.setBirth(getInt(etDate));
         exercise.setName(getStr(etExName));
         exercise.setReiteration1(getInt(etRI));
@@ -64,9 +57,13 @@ public class ActivityNewExercise extends AppCompatActivity {
         exercise.setWeight3(getInt(etWeightIII));
         exercise.setWeight4(getInt(etWeightIV));
         exercise.setWeight5(getInt(etWeightV));
-        exerciseRealm.commitTransaction();
+        exercise.save();
+
+        Intent intent  = new Intent(ActivityNewExercise.this, ActivityDiary.class);
+        startActivity(intent);
     }
 
+    @NonNull
     private String getStr(EditText editText){
         return editText.getText().toString();
     }
@@ -74,11 +71,5 @@ public class ActivityNewExercise extends AppCompatActivity {
     private int getInt (EditText editText){
         int i = Integer.parseInt(editText.getText().toString());
         return i;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        exerciseRealm.close();
     }
 }

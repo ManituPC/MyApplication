@@ -1,21 +1,22 @@
-package com.example.fitness_application.objects;
+package com.example.fitness_application.model;
 
-import io.realm.RealmObject;
-import io.realm.annotations.Required;
+
+import com.orm.SugarRecord;
 
 /**
  * Created by Денис on 31.05.2017.
  */
 
-public class Exercise extends RealmObject {
+public class Exercise extends SugarRecord {
 
-    @Required
-
-    private int id;
+    private long id;
     private int birth;
     private String name;
     private int reiteration1, reiteration2, reiteration3, reiteration4, reiteration5;
     private int weight1, weight2, weight3, weight4, weight5;
+
+    public Exercise() {
+    }
 
     public Exercise(int id, int birth, String name, int reiteration1, int reiteration2, int reiteration3, int reiteration4, int reiteration5,
                     int weight1, int weight2, int weight3, int weight4, int weight5) {
@@ -34,7 +35,7 @@ public class Exercise extends RealmObject {
         this.weight5 = weight5;
     }
 
-    public int getId(){
+    public Long getId(){
         return id;
     }
 
@@ -137,6 +138,5 @@ public class Exercise extends RealmObject {
     public void setWeight5(int weight5) {
         this.weight5 = weight5;
     }
-
 }
 
