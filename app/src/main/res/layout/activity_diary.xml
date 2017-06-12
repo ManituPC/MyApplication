@@ -36,5 +36,4 @@
         android:onClick="onClickAddExercise"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
-
 </RelativeLayout>

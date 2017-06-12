@@ -1,6 +1,8 @@
 package com.example.fitness_application.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +94,7 @@ public class AdapterExercise extends BaseAdapter {
         // Добавим возможность клика
         v.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                exercise.delete(exercise);
                 Toast.makeText(AdapterExercise.this.context, exercise.getName(), Toast.LENGTH_SHORT).show();
             }
         });

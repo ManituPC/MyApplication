@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.fitness_application.model.Exercise;
+import com.orm.SugarRecord;
 
 /**
  * Created by Денис on 06.06.2017.
@@ -44,23 +46,8 @@ public class ActivityNewExercise extends AppCompatActivity {
 
     public void clickAddNewExercise(View view) {
 
-        Exercise exercise = new Exercise();
-        exercise.setBirth(getInt(etDate));
-        exercise.setName(getStr(etExName));
-        exercise.setReiteration1(getInt(etRI));
-        exercise.setReiteration2(getInt(etRII));
-        exercise.setReiteration3(getInt(etRIII));
-        exercise.setReiteration4(getInt(etRIV));
-        exercise.setReiteration5(getInt(etRV));
-        exercise.setWeight1(getInt(etWeightI));
-        exercise.setWeight2(getInt(etWeightII));
-        exercise.setWeight3(getInt(etWeightIII));
-        exercise.setWeight4(getInt(etWeightIV));
-        exercise.setWeight5(getInt(etWeightV));
-        exercise.save();
-
-        Intent intent  = new Intent(ActivityNewExercise.this, ActivityDiary.class);
-        startActivity(intent);
+        getLength(etDate,etExName,etRI,etRII,etRIII,etRIV,etRV,etWeightI,etWeightII,etWeightIII,
+                etWeightIV,etWeightV);
     }
 
     @NonNull
@@ -72,4 +59,54 @@ public class ActivityNewExercise extends AppCompatActivity {
         int i = Integer.parseInt(editText.getText().toString());
         return i;
     }
+
+    private void getLength(EditText etDate,EditText etExName,EditText etRI,EditText etRII,EditText
+            etRIII,EditText etRIV,EditText etRV,EditText etWeightI,EditText etWeightII,EditText
+            etWeightIII,EditText etWeightIV,EditText etWeightV) {
+        if (etDate.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etExName.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etRI.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etRII.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etRIII.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etRIV.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etRV.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etWeightI.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etWeightII.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etWeightIII.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etWeightIV.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else if (etWeightV.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
+        } else {
+            Exercise exercise = new Exercise();
+            exercise.setBirth(getInt(etDate));
+            exercise.setName(getStr(etExName));
+            exercise.setReiteration1(getInt(etRI));
+            exercise.setReiteration2(getInt(etRII));
+            exercise.setReiteration3(getInt(etRIII));
+            exercise.setReiteration4(getInt(etRIV));
+            exercise.setReiteration5(getInt(etRV));
+            exercise.setWeight1(getInt(etWeightI));
+            exercise.setWeight2(getInt(etWeightII));
+            exercise.setWeight3(getInt(etWeightIII));
+            exercise.setWeight4(getInt(etWeightIV));
+            exercise.setWeight5(getInt(etWeightV));
+            exercise.save();
+
+            Intent intent  = new Intent(ActivityNewExercise.this, ActivityDiary.class);
+            startActivity(intent);
+        }
+    }
 }
+
+
