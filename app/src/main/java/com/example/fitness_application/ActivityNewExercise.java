@@ -1,16 +1,22 @@
 package com.example.fitness_application;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fitness_application.model.Exercise;
-import com.orm.SugarRecord;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Денис on 06.06.2017.
@@ -18,7 +24,7 @@ import com.orm.SugarRecord;
 
 public class ActivityNewExercise extends AppCompatActivity {
 
-    EditText etDate, etExName, etRI, etRII, etRIII, etRIV, etRV, etWeightI, etWeightII, etWeightIII,
+    EditText etExName, etRI, etRII, etRIII, etRIV, etRV, etWeightI, etWeightII, etWeightIII,
             etWeightIV, etWeightV;
 
     Button btnSaveNewEx;
@@ -28,7 +34,6 @@ public class ActivityNewExercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_exercise);
 
-        etDate = (EditText)findViewById(R.id.etDate);
         etExName = (EditText)findViewById(R.id.etExName);
         etRI = (EditText)findViewById(R.id.etRI);
         etRII = (EditText)findViewById(R.id.etRII);
@@ -42,11 +47,19 @@ public class ActivityNewExercise extends AppCompatActivity {
         etWeightV = (EditText)findViewById(R.id.etWeightV);
 
         btnSaveNewEx = (Button)findViewById(R.id.btnSaveNewEx);
+
+
+    }
+
+    private String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
     public void clickAddNewExercise(View view) {
 
-        getLength(etDate,etExName,etRI,etRII,etRIII,etRIV,etRV,etWeightI,etWeightII,etWeightIII,
+        getLength(etExName,etRI,etRII,etRIII,etRIV,etRV,etWeightI,etWeightII,etWeightIII,
                 etWeightIV,etWeightV);
     }
 
@@ -60,12 +73,10 @@ public class ActivityNewExercise extends AppCompatActivity {
         return i;
     }
 
-    private void getLength(EditText etDate,EditText etExName,EditText etRI,EditText etRII,EditText
+    private void getLength(EditText etExName,EditText etRI,EditText etRII,EditText
             etRIII,EditText etRIV,EditText etRV,EditText etWeightI,EditText etWeightII,EditText
             etWeightIII,EditText etWeightIV,EditText etWeightV) {
-        if (etDate.getText().length() == 0) {
-            Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
-        } else if (etExName.getText().length() == 0) {
+        if (etExName.getText().length() == 0) {
             Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
         } else if (etRI.getText().length() == 0) {
             Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
@@ -89,7 +100,7 @@ public class ActivityNewExercise extends AppCompatActivity {
             Toast.makeText(this, "Заполните пустые поля!", Toast.LENGTH_SHORT).show();
         } else {
             Exercise exercise = new Exercise();
-            exercise.setBirth(getInt(etDate));
+            exercise.setBirth(getDateTime());
             exercise.setName(getStr(etExName));
             exercise.setReiteration1(getInt(etRI));
             exercise.setReiteration2(getInt(etRII));

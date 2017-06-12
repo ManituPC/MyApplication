@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.fitness_application.adapter.AdapterExercise;
 import com.example.fitness_application.model.Exercise;
+import com.orm.SugarRecord;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,6 @@ public class ActivityDiary extends AppCompatActivity {
         //Init adapter
         adapterExercise = new AdapterExercise(allExercise, this);
         lvExercise.setAdapter(adapterExercise);
-
-        adapterExercise.notifyDataSetChanged();
     }
 
 

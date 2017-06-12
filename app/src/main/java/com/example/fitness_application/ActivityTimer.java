@@ -1,13 +1,16 @@
 package com.example.fitness_application;
 
+import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -15,7 +18,7 @@ import java.util.Date;
 /**
  * Created by Денис on 28.02.2017.
  */
-public class ActivityTimer extends AppCompatActivity {
+public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoadCompleteListener {
 
     private TextView mTextWork;
     private TextView mTextRest;
@@ -29,6 +32,12 @@ public class ActivityTimer extends AppCompatActivity {
     int numberRound;
     boolean mIsRunning = false;
     int mCurrentPeriod = 0;
+
+    final String LOG_TAG = "myLogs";
+
+    SoundPool sp;
+    int soundWork;
+    int soundRest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +58,21 @@ public class ActivityTimer extends AppCompatActivity {
         pickerRound.setMaxValue(8);
         pickerSecWork.setOnValueChangedListener(onValueChangedWork);
         pickerSecRest.setOnValueChangedListener(onValueChangedRest);
+
+        sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
+        sp.setOnLoadCompleteListener(this);
+
+        soundWork = sp.load(this, R.raw.zvonok, 1);
+        soundRest = sp.load(this, R.raw.old, 1);
+
+    }
+
+    public void playMusicWork() {
+        sp.play(soundWork, 1, 1, 0, 1, 1);
+    }
+
+    public void playMusicRest() {
+        sp.play(soundRest, 1, 1, 0, 1, 1);
     }
 
     // Реализация таймеров
@@ -60,6 +84,7 @@ public class ActivityTimer extends AppCompatActivity {
             }
 
             public void onFinish() {
+                playMusicWork();
                 mTextWork.setText("Rest!");
                 TimerRest();
             }
@@ -71,9 +96,13 @@ public class ActivityTimer extends AppCompatActivity {
 
             public void onTick(long millisUntilFinished) {
                 mTextRest.setText(" " + millisUntilFinished / 1000);
+//                int last = Integer.parseInt(mTextRest.getText().toString());
+                if(millisUntilFinished < 7)
+                    playMusicRest();
             }
 
             public void onFinish() {
+                playMusicRest();
                 mTextRest.setText("Just do it!");
                 if(n < numberRound) {
                     TimerWorkOut();
@@ -94,8 +123,12 @@ public class ActivityTimer extends AppCompatActivity {
     }
 
     public void ClickCancel(View v) {
-
-        //Будет reset
+        secWork = 0;
+        secRest = 0;
+        n = 0;
+        mTextWork.setText("00");
+        mTextRest.setText("00");
+        mTextRound.setText("№" + n);
     }
 
     // слушатели NumberPicker, и передача данных в TextWiew
@@ -121,5 +154,10 @@ public class ActivityTimer extends AppCompatActivity {
 
     private String intToTime(int i) {
         return (new SimpleDateFormat("ss")).format(new Date(i * 1000));
+    }
+
+    @Override
+    public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+        Log.d(LOG_TAG, "onLoadComplete, sampleId = " + sampleId + ", status = " + status);
     }
 }

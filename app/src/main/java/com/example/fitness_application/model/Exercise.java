@@ -10,7 +10,7 @@ import com.orm.SugarRecord;
 public class Exercise extends SugarRecord {
 
     private long id;
-    private int birth;
+    private String birth;
     private String name;
     private int reiteration1, reiteration2, reiteration3, reiteration4, reiteration5;
     private int weight1, weight2, weight3, weight4, weight5;
@@ -18,7 +18,7 @@ public class Exercise extends SugarRecord {
     public Exercise() {
     }
 
-    public Exercise(int id, int birth, String name, int reiteration1, int reiteration2, int reiteration3, int reiteration4, int reiteration5,
+    public Exercise(int id, String birth, String name, int reiteration1, int reiteration2, int reiteration3, int reiteration4, int reiteration5,
                     int weight1, int weight2, int weight3, int weight4, int weight5) {
         this.id = id;
         this.birth = birth;
@@ -43,11 +43,11 @@ public class Exercise extends SugarRecord {
         this.id = id;
     }
 
-    public int getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(int birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
 

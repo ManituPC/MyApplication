@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.example.fitness_application.R;
 import com.example.fitness_application.model.Exercise;
+import com.orm.SugarRecord;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +77,7 @@ public class AdapterExercise extends BaseAdapter {
         TextView tvWeightV = (TextView)v.findViewById(R.id.tvWeightV);
 
         //Set text for View
-        tvDate.setText(String.valueOf(exercise.getBirth()));
+        tvDate.setText(exercise.getBirth());
         tvExNameC.setText(exercise.getName());
         tvRI.setText(String.valueOf(exercise.getReiteration1()));
         tvRII.setText(String.valueOf(exercise.getReiteration2()));
@@ -94,9 +96,11 @@ public class AdapterExercise extends BaseAdapter {
         // Добавим возможность клика
         v.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                exercise.delete(exercise);
-                Toast.makeText(AdapterExercise.this.context, exercise.getName(), Toast.LENGTH_SHORT).show();
+                SugarRecord.delete(exercise);
+                AdapterExercise.this.notifyDataSetChanged();
+                Toast.makeText(AdapterExercise.this.context, "Запись удалена!", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }
