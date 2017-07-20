@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -26,6 +27,9 @@ public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoad
     private NumberPicker pickerSecWork;
     private NumberPicker pickerSecRest;
     private NumberPicker pickerRound;
+    Button startTime;
+    Button cancelTime;
+
     int n = 1;
     long secWork;
     long secRest;
@@ -39,6 +43,8 @@ public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoad
     int soundWork;
     int soundRest;
 
+    private static final String TAG = "myLogs";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,8 @@ public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoad
         mTextWork = (TextView) findViewById(R.id.textViewWork);
         mTextRest = (TextView) findViewById(R.id.textViewRest);
         mTextRound = (TextView) findViewById(R.id.textViewRound);
+        startTime = (Button) findViewById(R.id.btnStartTime);
+        cancelTime = (Button) findViewById(R.id.btnCancelTime);
         pickerSecWork = (NumberPicker) findViewById(R.id.pickerWO);
         pickerSecRest = (NumberPicker) findViewById(R.id.pickerR);
         pickerRound = (NumberPicker) findViewById(R.id.pickerRound);
@@ -58,6 +66,34 @@ public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoad
         pickerRound.setMaxValue(8);
         pickerSecWork.setOnValueChangedListener(onValueChangedWork);
         pickerSecRest.setOnValueChangedListener(onValueChangedRest);
+
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.btnStartTime:
+                        secWork = pickerSecWork.getValue() * 1000;
+                        secRest = pickerSecRest.getValue() * 1000;
+                        numberRound = pickerRound.getValue();
+                        timerWorkOut();
+                        mTextRound.setText("№" + n);
+                        break;
+                    case R.id.btnCancelTime:
+                        Log.d(TAG, "А вот и кнопочка Cancel!");
+                        secWork = 0;
+                        secRest = 0;
+                        n = 0;
+                        mTextWork.setText("00");
+                        mTextRest.setText("00");
+                        mTextRound.setText("№" + n);
+                        break;
+                }
+            }
+        };
+
+        startTime.setOnClickListener(onClickListener);
+        cancelTime.setOnClickListener(onClickListener);
 
         sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         sp.setOnLoadCompleteListener(this);
@@ -76,7 +112,7 @@ public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoad
     }
 
     // Реализация таймеров
-    public void TimerWorkOut() {
+    public void timerWorkOut() {
         new CountDownTimer(secWork, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -86,49 +122,28 @@ public class ActivityTimer extends AppCompatActivity implements SoundPool.OnLoad
             public void onFinish() {
                 playMusicWork();
                 mTextWork.setText("Rest!");
-                TimerRest();
+                timerRest();
             }
         }.start();
     }
 
-    public void TimerRest() {
+    public void timerRest() {
         new CountDownTimer(secRest, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 mTextRest.setText(" " + millisUntilFinished / 1000);
-//                int last = Integer.parseInt(mTextRest.getText().toString());
-                if(millisUntilFinished < 7)
-                    playMusicRest();
             }
 
             public void onFinish() {
                 playMusicRest();
                 mTextRest.setText("Just do it!");
                 if(n < numberRound) {
-                    TimerWorkOut();
+                    timerWorkOut();
                     n++;
                 }
                 mTextRound.setText("№" + n);
             }
         }.start();
-    }
-
-    // Кнопки
-    public void ClickStart(View view) {
-        secWork = pickerSecWork.getValue() * 1000;
-        secRest = pickerSecRest.getValue() * 1000;
-        numberRound = pickerRound.getValue();
-        TimerWorkOut();
-        mTextRound.setText("№" + n);
-    }
-
-    public void ClickCancel(View v) {
-        secWork = 0;
-        secRest = 0;
-        n = 0;
-        mTextWork.setText("00");
-        mTextRest.setText("00");
-        mTextRound.setText("№" + n);
     }
 
     // слушатели NumberPicker, и передача данных в TextWiew

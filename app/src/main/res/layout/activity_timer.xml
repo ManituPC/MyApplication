@@ -84,19 +84,17 @@
         </TableRow>
 
         <Button
-            android:id="@+id/startTime"
+            android:id="@+id/btnStartTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="20dp"
-            android:onClick="ClickStart"
             android:text="@string/start" />
 
         <Button
-            android:id="@+id/cancelTime"
+            android:id="@+id/btnCancelTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="ClickCancel"
             android:text="Cancel" />
 
     </LinearLayout>

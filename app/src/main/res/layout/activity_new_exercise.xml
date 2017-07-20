@@ -6,23 +6,9 @@
         android:padding="5dp">
 
     <EditText
-            android:id="@+id/etDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:ems="8"
-            android:inputType="date"
-            android:textStyle="bold"
-            android:hint="Дата"
-            android:gravity="center"
-            android:textSize="16dp" />
-
-    <EditText
         android:id="@+id/etExName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etDate"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:hint="Упражнение"
@@ -122,6 +108,7 @@
                     android:layout_marginLeft="15dp"
                     android:ems="2"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -130,6 +117,7 @@
                     android:layout_height="wrap_content"
                     android:ems="2"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -138,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:ems="2"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -146,6 +135,7 @@
                     android:layout_height="wrap_content"
                     android:ems="2"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -154,6 +144,7 @@
                     android:layout_height="wrap_content"
                     android:ems="2"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
             </TableRow>
 
@@ -178,6 +169,7 @@
                     android:layout_marginLeft="15dp"
                     android:ems="3"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -186,6 +178,7 @@
                     android:layout_height="wrap_content"
                     android:ems="3"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -194,6 +187,7 @@
                     android:layout_height="wrap_content"
                     android:ems="3"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -202,6 +196,7 @@
                     android:layout_height="wrap_content"
                     android:ems="3"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <EditText
@@ -210,6 +205,7 @@
                     android:layout_height="wrap_content"
                     android:ems="3"
                     android:inputType="number"
+                    android:textAlignment="center"
                     android:textSize="12sp" />
             </TableRow>
 
