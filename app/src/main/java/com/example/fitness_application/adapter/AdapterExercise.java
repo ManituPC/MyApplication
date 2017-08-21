@@ -1,6 +1,7 @@
 package com.example.fitness_application.adapter;
 
 import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fitness_application.ActivityDiary;
 import com.example.fitness_application.R;
 import com.example.fitness_application.model.Exercise;
 import com.orm.SugarRecord;
@@ -29,6 +31,8 @@ public class AdapterExercise extends BaseAdapter {
     private List<Exercise> exerciseList;
 
     private Context context;
+
+    private AlertDialog.Builder delExDialog;
 
     //Constructor
     public AdapterExercise(List<Exercise> exerciseList, Context context) {
@@ -93,12 +97,27 @@ public class AdapterExercise extends BaseAdapter {
         //Save product id to tag
         v.setTag(exercise.getId());
 
-        // Добавим возможность клика
+        //Добавим возможность удаления кликом по записи
         v.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                SugarRecord.delete(exercise);
-                AdapterExercise.this.notifyDataSetChanged();
-                Toast.makeText(AdapterExercise.this.context, "Запись удалена!", Toast.LENGTH_SHORT).show();
+                delExDialog = new AlertDialog.Builder(context);
+                delExDialog.setMessage("Удалить запись об упражнении?");
+                delExDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int arg1) {
+                        SugarRecord.delete(exercise);
+                        AdapterExercise.this.notifyDataSetChanged();
+                        Toast.makeText(AdapterExercise.this.context, "Запись удалена!",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+                delExDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int arg1) {
+                        Toast.makeText(AdapterExercise.this.context, "Ничего не произошло",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+                delExDialog.setCancelable(true);
+                delExDialog.show();
             }
         });
     }
